@@ -4,25 +4,43 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:WpfApp1.ViewModels"
+        xmlns:v="clr-namespace:WpfApp1.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type vm:StudentViewModel}">
+            <v:StudentView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:TeacherViewModel}">
+            <v:TeacherView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:UniversityPeopleViewModel}">
+            <v:UniversityPeopleView/>
+        </DataTemplate>
+    </Window.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel 
             Grid.Row="0" 
-            Orientation="Horizontal">
+            Orientation="Horizontal"
+            MinHeight="50" MinWidth="200">
             <Button 
                 Content="Teacher"
-                Command="{Binding TeacherCommand}"/>
+                Margin="5"
+                MinWidth="100"
+                Command="{Binding TeacherCommand}"
+                CommandParameter="TeacherParam"/>
             <Button 
                 Content="Student"
+                Margin="0,5,5,5"
+                MinWidth="100"
                 Command="{Binding StudentCommand}"/>
         </StackPanel>
         <ContentPresenter 

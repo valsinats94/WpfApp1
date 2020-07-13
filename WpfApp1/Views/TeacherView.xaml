@@ -8,5 +8,9 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <TextBlock Text="BBBBBBBBBBBBBBBBBBBB"/>
+        <Button 
+            Command="{Binding TestCommand}"
+            Content="Test"/>
+        
     </Grid>
 </UserControl>

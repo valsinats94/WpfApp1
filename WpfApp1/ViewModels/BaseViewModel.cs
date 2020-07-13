@@ -20,7 +20,12 @@ namespace WpfApp1.ViewModels
             }
             set
             {
+                if (value == view)
+                    return;
+
                 view = value;
+                view.DataContext = this;
+
                 OnPropertyChanged("View");
             }
         }

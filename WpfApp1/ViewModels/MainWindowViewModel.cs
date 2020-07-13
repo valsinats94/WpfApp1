@@ -38,7 +38,7 @@ namespace WpfApp1.ViewModels
             get
             {
                 if (teacherCommand == null)
-                    teacherCommand = new DelegateCommand<object>(CreateTeacherViewModel);
+                    teacherCommand = new DelegateCommand<string>(CreateTeacherViewModel);
 
                 return teacherCommand;
             }
@@ -66,7 +66,7 @@ namespace WpfApp1.ViewModels
             BaseViewModel = studentViewModel;
         }
 
-        private void CreateTeacherViewModel(object obj)
+        private void CreateTeacherViewModel(string obj)
         {
             BaseViewModel = new TeacherViewModel();
         }
